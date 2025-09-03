@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pawan Gujar | Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #f8fafc;
+      --bg-gradient: #e0f2fe;
+      --text-dark: #1f2937;
+      --card-bg: rgba(255, 255, 255, 0.5);
+      --text-light: #ffffff;
+      --nav-bg: rgba(255, 255, 255, 0.9);
+    }
+
+    body.dark-mode {
+      --bg-light: #1e293b;
+      --bg-gradient: #0f172a;
+      --text-dark: #f8fafc;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --text-light: #f8fafc;
+      --nav-bg: rgba(15, 23, 42, 0.95);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, var(--bg-light), var(--bg-gradient));
+      color: var(--text-dark);
+      transition: all 0.5s, color 0.5s;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+
+    nav img {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #3b82f6;
+    }
+
+    #darkToggle {
+      cursor: pointer;
+    }
+
+    #hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: var(--text-dark);
+    }
+
+    header {
+      background-image: url('images\\deskman.jpg');
+      background-size: 100%;
+      background-position: center;
+      text-align: left;
+      padding: 180px 60px;
+      color: var(--text-light);
+      transition: background-size 1s ease;
+      /* 👈 smooth zoom effect */
+    }
+
+    header:hover {
+      background-size: 105%;
+    }
+
+    body.dark-mode header {
+      color: white;
+    }
+
+    header:hover {
+      background-size: 105%;
+    }
+
+    .projects-section img,
+    .certifications-section img,
+    .card-grid img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1,
+    h2 {
+      color: var(--text-white);
+      margin-bottom: 15px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+      scroll-margin-top: 100px;
+    }
+
+    .hover-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .hover-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card-grid .hover-card {
+      flex: 1 1 calc(50% - 20px);
+    }
+
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      text-align: left;
+    }
+
+    .about-section img {
+      max-width: 280px;
+      border-radius: 20px;
+      width: 100%;
+    }
+
+    .about-text {
+      flex: 1 1 300px;
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .cert-list img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .contact-icons img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      transition: transform 0.3s;
+    }
+
+    .contact-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #fff;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .tilt-card {
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .tilt-card:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+
+    /* body.dark-mode .hover-card:hover {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 0 0 40px rgba(255, 255, 255, 0.15);
+    }
+
+    body.dark-mode .hover-card h2,
+    body.dark-mode .hover-card p {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    } */
+    /* Glowing hover effect for cards in dark mode */
+    body.dark-mode .hover-card:hover {
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.3), 0 0 24px rgba(0, 255, 255, 0.2);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+    /* body.dark-mode .hover-card:hover {
+      box-shadow: 0px 2px 20px rgb(0 255 204 / 33%), 0px 7px 6px rgb(116 54 255 / 44%);
+      border: 1px solid rgb(123 0 255 / 20%);
+    } */
+
+    /* Optional: Glow text inside the card */
+    /* body.dark-mode .hover-card h2,
+    body.dark-mode .hover-card h3,
+    body.dark-mode .hover-card p {
+      text-shadow: 0 0 4px rgba(0, 255, 255, 0.3);
+    } */
+
+
+
+    /* Responsive Fixes */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav img {
+        margin: 0 auto;
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        animation: slide-down 0.5s ease-out;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      #hamburger {
+        display: block;
+      }
+
+      .about-section {
+        flex-direction: column;
+      }
+
+      .about-text {
+        max-width: 100%;
+      }
+
+      .card-grid .hover-card {
+        flex: 1 1 100%;
+      }
+    }
+
+    @keyframes slide-down {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <nav>
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Logo" />
+    <button id="hamburger">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+      <button id="darkToggle">🌓</button>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Hi! I am Pawan Kumar Gujar</h1>
+    <h2>Software Engineer | Java | Web Development | Full-Stack | CyberSecurity Enthusiast</h2>
+    <p>Passionate about building scalable, maintainable software solutions.</p>
+  </header>
+
+  <div class="container">
+    <section class="section" id="about">
+      <div class="hover-card about-section">
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>I'm a dedicated and adaptable Junior Software Engineer with over 2 years of hands-on experience in Java,
+            full-stack web development, and designing user-centric software solutions. I've successfully built
+            real-world applications such as inventory systems, learning platforms, and desktop productivity tools. I
+            bring a strong foundation in OOP, SDLC, and version control with Git. Known for being a fast learner and
+            reliable team collaborator, I thrive in agile environments where innovation, responsibility, and growth go
+            hand in hand. I’m eager to contribute to dynamic software development teams and continuously sharpen my
+            skills to add long-term value.</p>
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" />
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="hover-card">
+        <h2>Skills</h2>
+        <ul>
+          <li><strong>Languages:</strong> Java, JavaScript, Dart, Python, C/C++, PHP, SQL</li>
+          <li><strong>Web Development:</strong> HTML, CSS, JavaScript, PHP, MySQL</li>
+          <li><strong>Frameworks & Tools:</strong> Flutter, Git, GitHub, VS Code, Android Studio</li>
+          <li><strong>Database & Backend:</strong> MySQL, PHP, DB Schema Design</li>
+          <li><strong>Systems & Networking:</strong> Windows, Linux CLI, Packet Tracer</li>
+          <li><strong>Soft Skills:</strong> Team Collaboration, Problem Solving, Pressure Handling, Fast Learning,
+            Responsibility</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="hover-card">
+        <h2>Projects</h2>
+        <div class="card-grid">
+          <div class="hover-card">
+            <h3>University Attendance System</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Attendance Icon" />
+            <p>Java GUI-based attendance tracker for university classrooms.</p>
+            <a href="https://github.com/PawanGujar/attendance-system" target="_blank">View on GitHub</a>
+          </div>
+          <div class="hover-card">
+            <h3>Notepad Clone</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/2991/2991110.png" alt="Notepad Icon" />
+            <p>Java-based text editor with additional features and sleek UI.</p>
+            <a href="https://github.com/PawanGujar/notepad-clone" target="_blank">View on GitHub</a>
+          </div>
+          <div class="hover-card">
+            <h3>Inventory & LMS</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/2306/2306184.png" alt="Inventory Icon" />
+            <p>University-based systems for managing inventory and learning modules using PHP/MySQL.</p>
+            <a href="https://github.com/PawanGujar/university-lms" target="_blank">View on GitHub</a>
+          </div>
+          <div class="hover-card">
+            <h3>Mobile App Demos</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Mobile Icon" />
+            <p>Flutter apps showcasing junior-level design and logic.</p>
+            <a href="https://github.com/PawanGujar/flutter-demos" target="_blank">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certifications">
+      <div class="hover-card">
+        <h2>Certifications</h2>
+        <div class="card-grid">
+          <div class="hover-card">
+            <p><img src="https://cdn-icons-png.flaticon.com/512/5968/5968520.png"> Cybersecurity – Google (Coursera)</p>
+          </div>
+          <div class="hover-card">
+            <p><img src="https://cdn-icons-png.flaticon.com/512/226/226777.png"> Java Full Stack Developer – Board
+              Infinity</p>
+          </div>
+          <div class="hover-card">
+            <p><img src="https://cdn-icons-png.flaticon.com/512/919/919840.png"> Cloud Computing – IBM</p>
+          </div>
+          <div class="hover-card">
+            <p><img src="https://cdn-icons-png.flaticon.com/512/906/906324.png"> Linux Tools – Linux Foundation</p>
+          </div>
+          <div class="hover-card">
+            <p><img src="https://cdn-icons-png.flaticon.com/512/1077/1077042.png"> Gen AI – Google, AI Essentials –
+              DeepLearning.AI</p>
+          </div>
+          <div class="hover-card">
+            <p><img src="https://cdn-icons-png.flaticon.com/512/5457/5457309.png"> Ethical Hacking Essentials –
+              EC-Council</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="hover-card">
+        <h2>Contact</h2>
+        <div class="contact-icons">
+          <div class="contact-item"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" />
+            pawankumar87gujar@gmail.com</div>
+          <div class="contact-item"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" /> +92310-3101260
+          </div>
+          <div class="contact-item"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" /> Karachi,
+            Pakistan</div>
+          <div class="contact-item"><a href="https://github.com/PawanGujar" target="_blank"><img
+                src="https://cdn-icons-png.flaticon.com/512/733/733553.png" /> GitHub</a></div>
+          <div class="contact-item"><a href="https://www.linkedin.com/in/pawangujar" target="_blank"><img
+                src="https://cdn-icons-png.flaticon.com/512/174/174857.png" /> LinkedIn</a></div>
+          <div class="contact-item"><a href="https://example.com/resume.pdf" download><img
+                src="https://cdn-icons-png.flaticon.com/512/336/336822.png" /> Download Resume</a></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Pawan Gujar. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('darkToggle');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    toggle.addEventListener('click', () => {
+      document.body.classList
+        .toggle('dark-mode');
+    });
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+  </script>
+  <!-- <script>
+    document.querySelectorAll('.hover-card').forEach(card => {
+      card.classList.add('tilt-card');
+  
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+  
+        const rotateX = -(y - centerY) / 200;
+        const rotateY = (x - centerX) / 200;
+  
+        card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.019)`;
+      });
+  
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)';
+      });
+    });
+  </script> -->
+
+
+</body>
+
+</html>
