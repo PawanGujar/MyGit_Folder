@@ -105,10 +105,6 @@
       color: white;
     }
 
-    header:hover {
-      background-size: 105%;
-    }
-
     .projects-section img,
     .certifications-section img,
     .card-grid img {
@@ -352,6 +348,7 @@
     <section class="section" id="skills">
       <div class="hover-card">
         <h2>Skills</h2>
+        <h4>Technical Skills:</h4>
         <ul>
           <li><strong>Languages:</strong> Java, JavaScript, Dart, Python, C/C++, PHP, SQL</li>
           <li><strong>Web Development:</strong> HTML, CSS, JavaScript, PHP, MySQL</li>
@@ -360,6 +357,15 @@
           <li><strong>Systems & Networking:</strong> Windows, Linux CLI, Packet Tracer</li>
           <li><strong>Soft Skills:</strong> Team Collaboration, Problem Solving, Pressure Handling, Fast Learning,
             Responsibility</li>
+        </ul>
+        <br>
+        <h4>Soft Skills:</h4>
+        <ul>
+          <li>Problem-Solving & Analytical Thinking</li>
+          <li>Collaboration & Teamwork</li>
+          <li>Adaptability & Quick Learning</li>
+          <li>Communication & Conflict Resolution</li>
+          <li>Responsibility under Pressure</li>
         </ul>
       </div>
     </section>
@@ -401,20 +407,26 @@
         <h2>Certifications</h2>
         <div class="card-grid">
           <div class="hover-card">
-            <p><img src="https://cdn-icons-png.flaticon.com/512/5968/5968520.png"> Cybersecurity – Google (Coursera)</p>
+            <p><img src="images/certificate.png">  Computer Application & Office Professional - NAVTTC</p>
+          </div>
+          <div class="hover-card">
+            <p><img src="images/digital-certificate.png"> Web App Development in ASP.NET, PHP - CyberVision International</p>
+          </div>
+          <div class="hover-card">
+            <p><img src="images/diploma.png"> Google Cybersecurity Professional Certificate – Google</p>
           </div>
           <div class="hover-card">
             <p><img src="https://cdn-icons-png.flaticon.com/512/226/226777.png"> Java Full Stack Developer – Board
               Infinity</p>
           </div>
           <div class="hover-card">
-            <p><img src="https://cdn-icons-png.flaticon.com/512/919/919840.png"> Cloud Computing – IBM</p>
+            <p><img src="images/cloud-computing.png"> Cloud Computing – IBM</p>
           </div>
           <div class="hover-card">
             <p><img src="https://cdn-icons-png.flaticon.com/512/906/906324.png"> Linux Tools – Linux Foundation</p>
           </div>
           <div class="hover-card">
-            <p><img src="https://cdn-icons-png.flaticon.com/512/1077/1077042.png"> Gen AI – Google, AI Essentials –
+            <p><img src="images/ai.png"> Gen AI – Google, AI Essentials –
               DeepLearning.AI</p>
           </div>
           <div class="hover-card">
@@ -440,7 +452,7 @@
           <div class="contact-item"><a href="https://www.linkedin.com/in/pawangujar" target="_blank"><img
                 src="https://cdn-icons-png.flaticon.com/512/174/174857.png" /> LinkedIn</a></div>
           <div class="contact-item"><a href="https://example.com/resume.pdf" download><img
-                src="https://cdn-icons-png.flaticon.com/512/336/336822.png" /> Download Resume</a></div>
+                src="images/cv.png" /> Download Resume</a></div>
         </div>
       </div>
     </section>
@@ -456,8 +468,7 @@
     const navLinks = document.getElementById('navLinks');
 
     toggle.addEventListener('click', () => {
-      document.body.classList
-        .toggle('dark-mode');
+      document.body.classList.toggle('dark-mode');
     });
 
     hamburger.addEventListener('click', () => {
